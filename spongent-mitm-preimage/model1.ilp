@@ -1,0 +1,16 @@
+\ Model (null)_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Maximize
+ 
+Subject To
+ R392: Af_0_236_0 = 1
+ R394: Af_0_237_0 = 1
+ R396: Af_0_238_0 = 1
+ R398: Af_0_239_0 = 1
+ R2619: Af_0_236_0 + Af_0_237_0 + Af_0_238_0 + Af_0_239_0 + DCf_0_236_0
+   + DCf_0_237_0 + DCf_0_238_0 + DCf_0_239_0 <= 3
+Bounds
+Binaries
+ Af_0_236_0 Af_0_237_0 Af_0_238_0 Af_0_239_0 DCf_0_236_0 DCf_0_237_0
+ DCf_0_238_0 DCf_0_239_0
+End
