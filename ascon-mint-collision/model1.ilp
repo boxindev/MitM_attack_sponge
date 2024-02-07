@@ -1,0 +1,15 @@
+\ Model (null)_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Maximize
+ 
+Subject To
+ R192: DA_3_0_0_0 = 1
+ R193: DA_3_0_0_2 = 0
+ R194: DA_3_0_1_0 = 1
+ R195: DA_3_0_1_2 = 0
+ R2391: - DA_3_0_0_0 - DA_3_0_0_2 - DA_3_0_1_0 + 2 A0A1_0 >= -1
+ R2394: DA_3_0_0_2 + DA_3_0_1_2 - A0A1_0 >= 0
+Bounds
+Binaries
+ DA_3_0_0_0 DA_3_0_0_2 DA_3_0_1_0 DA_3_0_1_2 A0A1_0
+End
