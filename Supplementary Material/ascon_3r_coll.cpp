@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  2r experiments on Ascon-XoF
+//  3r experiments on Ascon-Hash
 //  
-//  Created on 2022/9/3.
+//  Created on 2024/2/7.
 //
 
 #include <iostream>
