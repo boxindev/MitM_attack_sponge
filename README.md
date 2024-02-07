@@ -1,4 +1,4 @@
-#MitM_Attack
+# MitM_Attack
 The different folders are:
 - `Supplementary Material`: one collision experiment on round-reduced Ascon-Hash.
 - `ascon-mitm-collision`: the code to search for MitM collision attacks on ascon.
