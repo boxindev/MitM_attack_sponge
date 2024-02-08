@@ -119,6 +119,18 @@ UINT64 generateConsume(UINT64 *state)
     return Consume;
 }
 
+UINT64 generateVerify(UINT64 *state)
+{
+    UINT64 Verify=0;
+    for (int i=0; i<6; i++) {
+        Verify = (Verify << 1) ^ TAKE_BIT(state[1], (63-indexm[i]));
+        Verify = (Verify << 1) ^ TAKE_BIT(state[2], (63-indexm[i]));
+        Verify = (Verify << 1) ^ TAKE_BIT(state[3], (63-indexm[i]));
+        Verify = (Verify << 1) ^ TAKE_BIT(state[4], (63-indexm[i]));
+    }
+    return Verify;
+}
+
 int main(int argc, const char * argv[])
 {
 	clock_t start_time = clock();
@@ -205,8 +217,10 @@ int main(int argc, const char * argv[])
     }
  
     cout << "Finish Build L1!\n";
-    //cout << "Size of L1 is " << tmpCount <<endl;
-    //cout << "consume count is " << consuCount <<endl;
+    
+    clock_t end_time = clock();
+    cout << "The time of building L1 is: " <<(double)(end_time - start_time) / CLOCKS_PER_SEC << "s" << endl;
+    start_time = clock();
     
     //Fix Red to e, traverse the blue bits
     for(UINT64 j=0; j<(UINT64(1)<<24); j++){
@@ -255,9 +269,10 @@ int main(int argc, const char * argv[])
                     TempState[i]=InitialState[i];
                 }
                 
-                PermutationOnWords(TempState, 2);  
-                UINT64 hash = generateMP(TempState);
-                if (hash==tmpM) {
+                PermutationOnWords(TempState, 2);
+                pS(TempState);  
+                UINT64 hash = generateVerify(TempState);
+                if (hash==0) {
                     SucceedNum += 1;
                     //if((outputNum<500)&(j>(UINT64(1)<<18))){
                     //outputNum+=1;
@@ -268,9 +283,10 @@ int main(int argc, const char * argv[])
 
         }
     }
-    clock_t end_time = clock();
-
-    cout << "The run time is: " <<(double)(end_time - start_time) / CLOCKS_PER_SEC << "s" << endl;
+    cout << "FInish Mitm Attack\n";
+    
+    end_time = clock();
+    cout << "The time of Mitm Attack is: " <<(double)(end_time - start_time) / CLOCKS_PER_SEC << "s" << endl;
 
     cout << "In total, 2^" << log(double(MatchNum))/log(2.0) << " preimage are found!" << endl;
     //cout << "In total, 2^" << log(double(SucceedNum))/log(2.0) << " success are found!" << endl;
