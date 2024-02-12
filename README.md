@@ -5,4 +5,5 @@ The different folders are:
 - `ascon-mitm-preimage`: the code to search for MitM preimage attacks on ascon.
 - `Xoodyak-mitm-collision`: the code to search for MitM collision attacks on Xoodyak.
 - `spongent-mitm-preimage`: the code to search for MitM preimage attacks on spongent-88.
-- `newlibs`: the libraries used by the different tools. 
+- `newlibs`: the libraries used by the different tools.
+- `all_source.zip`: compressed package of the above source codes.
